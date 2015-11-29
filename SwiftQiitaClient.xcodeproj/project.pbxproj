@@ -14,6 +14,7 @@
 		C27DF9531C0AF0D70042BE71 /* SwiftQiitaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9521C0AF0D70042BE71 /* SwiftQiitaClientTests.swift */; };
 		C27DF95E1C0AF5660042BE71 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27DF95D1C0AF5660042BE71 /* Secrets.plist */; settings = {ASSET_TAGS = (); }; };
 		C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9621C0B00340042BE71 /* R.generated.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF9651C0B00E30042BE71 /* QiitaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9641C0B00E30042BE71 /* QiitaAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		C9E3502C78818343CC031532 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A455A93040E8BD6704A5AAAD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		C27DF9541C0AF0D70042BE71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C27DF95D1C0AF5660042BE71 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		C27DF9621C0B00340042BE71 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		C27DF9641C0B00E30042BE71 /* QiitaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,8 @@
 		C27DF95F1C0AFC150042BE71 /* QiitaAPI */ = {
 			isa = PBXGroup;
 			children = (
+				C27DF9641C0B00E30042BE71 /* QiitaAPI.swift */,
+				C27DF9661C0B1BE70042BE71 /* Endpoint */,
 			);
 			path = QiitaAPI;
 			sourceTree = "<group>";
@@ -137,6 +141,13 @@
 				C27DF9621C0B00340042BE71 /* R.generated.swift */,
 			);
 			path = R;
+			sourceTree = "<group>";
+		};
+		C27DF9661C0B1BE70042BE71 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27DF9651C0B00E30042BE71 /* QiitaAPI.swift in Sources */,
 				C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */,
 				C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */,
 			);
