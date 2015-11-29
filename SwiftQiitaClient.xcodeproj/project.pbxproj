@@ -15,6 +15,13 @@
 		C27DF95E1C0AF5660042BE71 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27DF95D1C0AF5660042BE71 /* Secrets.plist */; settings = {ASSET_TAGS = (); }; };
 		C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9621C0B00340042BE71 /* R.generated.swift */; settings = {ASSET_TAGS = (); }; };
 		C27DF9651C0B00E30042BE71 /* QiitaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9641C0B00E30042BE71 /* QiitaAPI.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF96B1C0B1E3F0042BE71 /* TaggingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF96A1C0B1E3F0042BE71 /* TaggingModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF96F1C0B1FCB0042BE71 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF96E1C0B1FCB0042BE71 /* UserModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF9711C0B24050042BE71 /* PostItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9701C0B24050042BE71 /* PostItemModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF9731C0B26840042BE71 /* PostItemEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9721C0B26840042BE71 /* PostItemEndpoint.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF9751C0B26EB0042BE71 /* AllPostItemListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9741C0B26EB0042BE71 /* AllPostItemListModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF9781C0B288E0042BE71 /* PostItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9771C0B288E0042BE71 /* PostItemListVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C27DF97B1C0B36D00042BE71 /* PostItemCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */; settings = {ASSET_TAGS = (); }; };
 		C9E3502C78818343CC031532 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A455A93040E8BD6704A5AAAD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +51,13 @@
 		C27DF95D1C0AF5660042BE71 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		C27DF9621C0B00340042BE71 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C27DF9641C0B00E30042BE71 /* QiitaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaAPI.swift; sourceTree = "<group>"; };
+		C27DF96A1C0B1E3F0042BE71 /* TaggingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggingModel.swift; sourceTree = "<group>"; };
+		C27DF96E1C0B1FCB0042BE71 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C27DF9701C0B24050042BE71 /* PostItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemModel.swift; sourceTree = "<group>"; };
+		C27DF9721C0B26840042BE71 /* PostItemEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemEndpoint.swift; sourceTree = "<group>"; };
+		C27DF9741C0B26EB0042BE71 /* AllPostItemListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPostItemListModel.swift; sourceTree = "<group>"; };
+		C27DF9771C0B288E0042BE71 /* PostItemListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemListVC.swift; sourceTree = "<group>"; };
+		C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemCellVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,9 @@
 		C27DF93C1C0AF0D60042BE71 /* SwiftQiitaClient */ = {
 			isa = PBXGroup;
 			children = (
+				C27DF9791C0B35E50042BE71 /* ViewModel */,
+				C27DF9761C0B28480042BE71 /* ViewController */,
+				C27DF9681C0B1CFC0042BE71 /* Model */,
 				C27DF9611C0B00080042BE71 /* R */,
 				C27DF95F1C0AFC150042BE71 /* QiitaAPI */,
 				C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */,
@@ -146,8 +163,60 @@
 		C27DF9661C0B1BE70042BE71 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
+				C27DF9721C0B26840042BE71 /* PostItemEndpoint.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		C27DF9681C0B1CFC0042BE71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF96D1C0B1FAA0042BE71 /* User */,
+				C27DF96C1C0B1F080042BE71 /* Posting */,
+				C27DF9691C0B1E130042BE71 /* Tagging */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C27DF9691C0B1E130042BE71 /* Tagging */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF96A1C0B1E3F0042BE71 /* TaggingModel.swift */,
+			);
+			path = Tagging;
+			sourceTree = "<group>";
+		};
+		C27DF96C1C0B1F080042BE71 /* Posting */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF9701C0B24050042BE71 /* PostItemModel.swift */,
+				C27DF9741C0B26EB0042BE71 /* AllPostItemListModel.swift */,
+			);
+			path = Posting;
+			sourceTree = "<group>";
+		};
+		C27DF96D1C0B1FAA0042BE71 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF96E1C0B1FCB0042BE71 /* UserModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		C27DF9761C0B28480042BE71 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF9771C0B288E0042BE71 /* PostItemListVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C27DF9791C0B35E50042BE71 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +385,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27DF9711C0B24050042BE71 /* PostItemModel.swift in Sources */,
 				C27DF9651C0B00E30042BE71 /* QiitaAPI.swift in Sources */,
+				C27DF9781C0B288E0042BE71 /* PostItemListVC.swift in Sources */,
+				C27DF9751C0B26EB0042BE71 /* AllPostItemListModel.swift in Sources */,
 				C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */,
 				C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */,
+				C27DF96F1C0B1FCB0042BE71 /* UserModel.swift in Sources */,
+				C27DF97B1C0B36D00042BE71 /* PostItemCellVM.swift in Sources */,
+				C27DF96B1C0B1E3F0042BE71 /* TaggingModel.swift in Sources */,
+				C27DF9731C0B26840042BE71 /* PostItemEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,10 @@ extension RequestProtocol {
         return .GET
     }
     
+    var baseURL: String {
+        return QiitaBaseURL
+    }
+    
     var URLString: String {
         return baseURL + path
     }
@@ -105,7 +109,6 @@ extension RequestProtocol where ResponseType: Mappable {
             if let error = resultJson.error {
                 return .Failure(error)
             }
-            
             guard let object = Mapper<ResponseType>().map(resultJson.value) else {
                 return .Failure(NSError(domain: "com.hachinobu.qiitaclient", code: -1000, userInfo: [NSLocalizedFailureReasonErrorKey: "Mapping Error"]))
             }
