@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */; };
-		C27DF9401C0AF0D60042BE71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF93F1C0AF0D60042BE71 /* ViewController.swift */; };
 		C27DF9431C0AF0D60042BE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9411C0AF0D60042BE71 /* Main.storyboard */; };
 		C27DF9451C0AF0D60042BE71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9441C0AF0D60042BE71 /* Assets.xcassets */; };
 		C27DF9481C0AF0D60042BE71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9461C0AF0D60042BE71 /* LaunchScreen.storyboard */; };
 		C27DF9531C0AF0D70042BE71 /* SwiftQiitaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9521C0AF0D70042BE71 /* SwiftQiitaClientTests.swift */; };
 		C27DF95E1C0AF5660042BE71 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27DF95D1C0AF5660042BE71 /* Secrets.plist */; settings = {ASSET_TAGS = (); }; };
+		C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9621C0B00340042BE71 /* R.generated.swift */; settings = {ASSET_TAGS = (); }; };
 		C9E3502C78818343CC031532 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A455A93040E8BD6704A5AAAD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +33,6 @@
 		A455A93040E8BD6704A5AAAD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27DF93A1C0AF0D60042BE71 /* SwiftQiitaClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQiitaClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C27DF93F1C0AF0D60042BE71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C27DF9421C0AF0D60042BE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C27DF9441C0AF0D60042BE71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C27DF9471C0AF0D60042BE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		C27DF9521C0AF0D70042BE71 /* SwiftQiitaClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftQiitaClientTests.swift; sourceTree = "<group>"; };
 		C27DF9541C0AF0D70042BE71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C27DF95D1C0AF5660042BE71 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		C27DF9621C0B00340042BE71 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,9 @@
 		C27DF93C1C0AF0D60042BE71 /* SwiftQiitaClient */ = {
 			isa = PBXGroup;
 			children = (
+				C27DF9611C0B00080042BE71 /* R */,
+				C27DF95F1C0AFC150042BE71 /* QiitaAPI */,
 				C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */,
-				C27DF93F1C0AF0D60042BE71 /* ViewController.swift */,
 				C27DF9411C0AF0D60042BE71 /* Main.storyboard */,
 				C27DF9441C0AF0D60042BE71 /* Assets.xcassets */,
 				C27DF9461C0AF0D60042BE71 /* LaunchScreen.storyboard */,
@@ -123,6 +124,21 @@
 			path = SwiftQiitaClientTests;
 			sourceTree = "<group>";
 		};
+		C27DF95F1C0AFC150042BE71 /* QiitaAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QiitaAPI;
+			sourceTree = "<group>";
+		};
+		C27DF9611C0B00080042BE71 /* R */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF9621C0B00340042BE71 /* R.generated.swift */,
+			);
+			path = R;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,6 +152,7 @@
 				C27DF9381C0AF0D60042BE71 /* Resources */,
 				487B83B7ACC1AA00EF0AA34A /* Embed Pods Frameworks */,
 				779723A0BA47DE3E6449757E /* Copy Pods Resources */,
+				C27DF9601C0AFF510042BE71 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -268,6 +285,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C27DF9601C0AFF510042BE71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -275,8 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C27DF9401C0AF0D60042BE71 /* ViewController.swift in Sources */,
 				C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */,
+				C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

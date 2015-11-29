@@ -32,4 +32,8 @@ Pods/
 
 Carthage/Build
 
+#Secrets
 SwiftQiitaClient/Secrets.plist
+
+#R.swift
+*.generated.swift
