@@ -8,10 +8,11 @@
 
 import Foundation
 import Bond
+import Timepiece
 
 struct PostItemCellVM {
     
-    let name = Observable<String?>("")
+    let id = Observable<String?>("")
     let profileImage = Observable<UIImage?>(nil)
     var profileImageURL: String? = ""
     let title = Observable<String?>("")
@@ -20,24 +21,26 @@ struct PostItemCellVM {
     let updatedAt = Observable<String?>("")
     let createdAt = Observable<String?>("")
     
-    var userPost: EventProducer<String> {
-        
-        return combineLatest(name, updatedAt).map{ (userValue, updatedAtValue) in
-            guard let userValue = userValue, updatedAtValue = updatedAtValue else {
+    var postedInfo: EventProducer<String?> {
+        return combineLatest(id, updatedAt).map{ (idValue, createdAtValue) in
+            guard let idValue = idValue, createdAtValue = createdAtValue else {
                 return ""
             }
-            return userValue + " が" + updatedAtValue + "前に投稿しました"
+            return idValue + " が " + self.fetchTimeDifference(createdAtValue) + "前に投稿しました"
         }
-        
     }
     
     init(postItemModel: PostItemModel) {
+        setupObservableValue(postItemModel)
+    }
+    
+    private mutating func setupValue(postItemModel: PostItemModel) {
         profileImageURL = postItemModel.user?.profileImageUrl
         setupObservableValue(postItemModel)
     }
     
     private func setupObservableValue(postItemModel: PostItemModel) {
-        name.next(postItemModel.user?.name)
+        id.next(postItemModel.user?.id)
         title.next(postItemModel.title)
         itemURL.next(postItemModel.url)
         updatedAt.next(postItemModel.updatedAt)
@@ -46,11 +49,41 @@ struct PostItemCellVM {
         guard let tagList = postItemModel.tags else {
             return
         }
-        var tagNames: [String] = []
-        tagList.flatMap { $0.name }.forEach { tagNames.append($0) }
-        tags.next(tagNames.joinWithSeparator(","))
+        tags.value = tagList.flatMap { $0.name }.joinWithSeparator(",")
+    }
+    
+    private func fetchTimeDifference(ISO8601String: String) -> String {
         
+        guard let date = ISO8601String.dateFromFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ") else {
+            return ""
+        }
+        let diff = NSCalendar.currentCalendar().components([.Year, .Month, .Weekday, .Day, .Hour, .Minute, .Second], fromDate: date, toDate: NSDate(), options: [])
         
+        if diff.year > 0 {
+            return "\(diff.year)年"
+        }
+        
+        if diff.month > 0 {
+            return "\(diff.month)ヶ月"
+        }
+        
+        if diff.day > 0 {
+            return "\(diff.day)日"
+        }
+        
+        if diff.hour > 0 {
+            return "\(diff.hour)時間"
+        }
+        
+        if diff.minute > 0 {
+            return "\(diff.minute)分"
+        }
+        
+        if diff.second > 0 {
+            return "\(diff.second)秒"
+        }
+        
+        return ""
         
     }
     

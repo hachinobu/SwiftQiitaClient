@@ -23,7 +23,7 @@ struct PostItemModel: Mappable {
     var createdAt: String?
     var updatedAt: String?
     
-    init?(_ map: Map){}
+    init?(_ map: Map) {}
     
     mutating func mapping(map: Map) {
         id <- map["id"]

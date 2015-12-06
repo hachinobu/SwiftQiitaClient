@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Bond
 
 class PostItemListVC: UITableViewController {
 
+    let refresh = UIRefreshControl()
+    var postItemListVM: AllPostItemListVM = AllPostItemListVM(baseModel: nil)
+    var dataSource: ObservableArray<ObservableArray<PostItemCellVM>>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         fetchAllPostItem()
     }
 
@@ -20,84 +26,48 @@ class PostItemListVC: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func fetchAllPostItem() {
-        
-        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: nil)) { result -> Void in
+    func setupUI() {
+        self.title = "すべての投稿"
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.addSubview(refresh)
+        refresh.addTarget(self, action: Selector("fetchAllPostItem"), forControlEvents: .ValueChanged)
+    }
+    
+    func bindUI() {
+        dataSource = postItemListVM.postItemCellViewModels.lift()
+        dataSource.bindTo(tableView) { (indexPath, dataSource, tableview) -> UITableViewCell in
             
+            let cellVM = dataSource[indexPath.section][indexPath.row]
+            let cell = tableview.dequeueReusableCellWithIdentifier(R.reuseIdentifier.postItemListCell, forIndexPath: indexPath)!
+            cellVM.profileImage.bindTo(cell.profileImageView.bnd_image).disposeIn(cell.bnd_bag)
+            cellVM.postedInfo.bindTo(cell.postedInfoLabel.bnd_text).disposeIn(cell.bnd_bag)
+            cellVM.title.bindTo(cell.titleLabel.bnd_text).disposeIn(cell.bnd_bag)
+            cellVM.tags.bindTo(cell.tagLabel.bnd_text).disposeIn(cell.bnd_bag)
+            
+            return cell
+            
+        }
+    }
+    
+    func fetchAllPostItem() {
+        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: nil)) { [weak self] result -> Void in
+            
+            self?.refresh.endRefreshing()
             guard let object = result.value else {
                 return
             }
-            
+            self?.postItemListVM = AllPostItemListVM(baseModel: object)
+            self?.bindUI()
             
         }
-        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
