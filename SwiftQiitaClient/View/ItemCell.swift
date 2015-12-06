@@ -12,6 +12,7 @@ import Bond
 class ItemCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var imageLoadIndicator: UIActivityIndicatorView!
     @IBOutlet weak var postedInfoLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!

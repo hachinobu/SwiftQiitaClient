@@ -52,6 +52,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ten-7M-9bO">
+                                            <rect key="frame" x="23" y="40" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Znl-r3-c14" secondAttribute="trailing" id="16B-30-OIa"/>
@@ -64,6 +67,7 @@
                                         <constraint firstAttribute="trailing" secondItem="HDl-gX-ahW" secondAttribute="trailing" id="Og4-jQ-dn5"/>
                                         <constraint firstItem="HDl-gX-ahW" firstAttribute="top" secondItem="Teg-dF-9X5" secondAttribute="top" constant="8" id="Teg-pI-NmG"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="sOQ-iY-jTW" secondAttribute="bottom" constant="8" id="cZw-dt-MLh"/>
+                                        <constraint firstItem="Ten-7M-9bO" firstAttribute="centerX" secondItem="FXS-Xl-88u" secondAttribute="centerX" id="f9V-3D-un9"/>
                                         <constraint firstItem="HDl-gX-ahW" firstAttribute="leading" secondItem="FXS-Xl-88u" secondAttribute="trailing" constant="10" id="gEJ-b7-EWx"/>
                                         <constraint firstItem="HDl-gX-ahW" firstAttribute="top" secondItem="Teg-dF-9X5" secondAttribute="top" constant="8" id="itY-rI-Hq9"/>
                                         <constraint firstItem="Znl-r3-c14" firstAttribute="leading" secondItem="FXS-Xl-88u" secondAttribute="trailing" constant="10" id="kgr-Fv-dj0"/>
@@ -72,6 +76,7 @@
                                         <constraint firstAttribute="trailing" secondItem="HDl-gX-ahW" secondAttribute="trailing" constant="10" id="tA5-xM-mrl"/>
                                         <constraint firstAttribute="trailing" secondItem="HDl-gX-ahW" secondAttribute="trailing" constant="10" id="wRw-el-nT0"/>
                                         <constraint firstItem="sOQ-iY-jTW" firstAttribute="leading" secondItem="FXS-Xl-88u" secondAttribute="trailing" constant="10" id="xI9-d3-x1N"/>
+                                        <constraint firstItem="Ten-7M-9bO" firstAttribute="centerY" secondItem="FXS-Xl-88u" secondAttribute="centerY" id="y88-8u-eyg"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -85,6 +90,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imageLoadIndicator" destination="Ten-7M-9bO" id="Y0J-jw-aBC"/>
                                     <outlet property="postedInfoLabel" destination="HDl-gX-ahW" id="HTV-Fy-HHV"/>
                                     <outlet property="profileImageView" destination="FXS-Xl-88u" id="xto-kt-L1S"/>
                                     <outlet property="tagLabel" destination="sOQ-iY-jTW" id="49N-QH-9Xo"/>

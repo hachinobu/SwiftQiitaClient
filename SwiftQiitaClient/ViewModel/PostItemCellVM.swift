@@ -9,6 +9,7 @@
 import Foundation
 import Bond
 import Timepiece
+import Kingfisher
 
 struct PostItemCellVM {
     
@@ -31,7 +32,7 @@ struct PostItemCellVM {
     }
     
     init(postItemModel: PostItemModel) {
-        setupObservableValue(postItemModel)
+        setupValue(postItemModel)
     }
     
     private mutating func setupValue(postItemModel: PostItemModel) {
@@ -84,6 +85,26 @@ struct PostItemCellVM {
         }
         
         return ""
+        
+    }
+    
+    func downloadProfileImage() {
+        
+        guard let profileImageURL = profileImageURL, url = NSURL(string: profileImageURL) else {
+            return
+        }
+        
+        KingfisherManager.sharedManager.retrieveImageWithResource(Resource(downloadURL: url), optionsInfo: nil, progressBlock: nil) { (image, error, cacheType, imageURL) -> () in
+            
+            guard let image = image else {
+                return
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.profileImage.next(image)
+            })
+            
+        }
         
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import Bond
+import Kingfisher
 
 class PostItemListVC: UITableViewController {
 
@@ -30,7 +31,7 @@ class PostItemListVC: UITableViewController {
         self.title = "すべての投稿"
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(refresh)
-        refresh.addTarget(self, action: Selector("fetchAllPostItem"), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: Selector("refreshPostData"), forControlEvents: .ValueChanged)
     }
     
     func bindUI() {
@@ -40,13 +41,29 @@ class PostItemListVC: UITableViewController {
             let cellVM = dataSource[indexPath.section][indexPath.row]
             let cell = tableview.dequeueReusableCellWithIdentifier(R.reuseIdentifier.postItemListCell, forIndexPath: indexPath)!
             cellVM.profileImage.bindTo(cell.profileImageView.bnd_image).disposeIn(cell.bnd_bag)
+            cell.profileImageView.bnd_image.observe { image -> Void in
+                if image == nil {
+                    cell.imageLoadIndicator.hidden = false
+                    cell.imageLoadIndicator.startAnimating()
+                    return
+                }
+                cell.imageLoadIndicator.hidden = true
+                cell.imageLoadIndicator.stopAnimating()
+            }
             cellVM.postedInfo.bindTo(cell.postedInfoLabel.bnd_text).disposeIn(cell.bnd_bag)
             cellVM.title.bindTo(cell.titleLabel.bnd_text).disposeIn(cell.bnd_bag)
             cellVM.tags.bindTo(cell.tagLabel.bnd_text).disposeIn(cell.bnd_bag)
+            cellVM.downloadProfileImage()
             
             return cell
             
         }
+    }
+    
+    func refreshPostData() {
+        KingfisherManager.sharedManager.cache.clearMemoryCache()
+        KingfisherManager.sharedManager.cache.clearDiskCache()
+        fetchAllPostItem()
     }
     
     func fetchAllPostItem() {
