@@ -44,7 +44,16 @@ extension QiitaAPI {
         
     }
     
-    
+    class PostItemDetail: RequestProtocol {
+        
+        typealias ResponseType = PostItemModel
+        var path: String = "/api/v2/items/"
+        
+        init(itemId: String) {
+            path += itemId
+        }
+        
+    }
     
     
 }

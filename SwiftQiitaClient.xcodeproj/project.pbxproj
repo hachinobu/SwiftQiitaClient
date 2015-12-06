@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C263EDCC1C143D18008BFD7C /* PostItemDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C263EDCB1C143D18008BFD7C /* PostItemDetail.storyboard */; settings = {ASSET_TAGS = (); }; };
+		C263EDCE1C1444B8008BFD7C /* ItemDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDCD1C1444B8008BFD7C /* ItemDetailTopCell.swift */; settings = {ASSET_TAGS = (); }; };
+		C263EDD01C1460D2008BFD7C /* ItemDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDCF1C1460D2008BFD7C /* ItemDetailBodyCell.swift */; settings = {ASSET_TAGS = (); }; };
+		C263EDD21C146132008BFD7C /* PostItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD11C146132008BFD7C /* PostItemDetailVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C263EDD41C147AFE008BFD7C /* StockEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD31C147AFE008BFD7C /* StockEndpoint.swift */; settings = {ASSET_TAGS = (); }; };
+		C263EDD61C147D2B008BFD7C /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD51C147D2B008BFD7C /* UserListModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C263EDD81C147F7B008BFD7C /* UserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD71C147F7B008BFD7C /* UserListVM.swift */; settings = {ASSET_TAGS = (); }; };
 		C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */; };
 		C27DF9431C0AF0D60042BE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9411C0AF0D60042BE71 /* Main.storyboard */; };
 		C27DF9451C0AF0D60042BE71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9441C0AF0D60042BE71 /* Assets.xcassets */; };
@@ -41,6 +48,13 @@
 		001214CCE190F4EAC56022AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		58BABD47965F44961147519B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A455A93040E8BD6704A5AAAD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C263EDCB1C143D18008BFD7C /* PostItemDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostItemDetail.storyboard; sourceTree = "<group>"; };
+		C263EDCD1C1444B8008BFD7C /* ItemDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTopCell.swift; sourceTree = "<group>"; };
+		C263EDCF1C1460D2008BFD7C /* ItemDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailBodyCell.swift; sourceTree = "<group>"; };
+		C263EDD11C146132008BFD7C /* PostItemDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemDetailVC.swift; sourceTree = "<group>"; };
+		C263EDD31C147AFE008BFD7C /* StockEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockEndpoint.swift; sourceTree = "<group>"; };
+		C263EDD51C147D2B008BFD7C /* UserListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		C263EDD71C147F7B008BFD7C /* UserListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListVM.swift; sourceTree = "<group>"; };
 		C27DF93A1C0AF0D60042BE71 /* SwiftQiitaClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQiitaClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27DF9421C0AF0D60042BE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +115,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C263EDCA1C143CEC008BFD7C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C263EDCB1C143D18008BFD7C /* PostItemDetail.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C27DF9311C0AF0D60042BE71 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +146,7 @@
 		C27DF93C1C0AF0D60042BE71 /* SwiftQiitaClient */ = {
 			isa = PBXGroup;
 			children = (
+				C263EDCA1C143CEC008BFD7C /* Storyboard */,
 				C27DF97F1C1292F00042BE71 /* View */,
 				C27DF9791C0B35E50042BE71 /* ViewModel */,
 				C27DF9761C0B28480042BE71 /* ViewController */,
@@ -171,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C27DF9721C0B26840042BE71 /* PostItemEndpoint.swift */,
+				C263EDD31C147AFE008BFD7C /* StockEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -206,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				C27DF96E1C0B1FCB0042BE71 /* UserModel.swift */,
+				C263EDD51C147D2B008BFD7C /* UserListModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -214,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				C27DF9771C0B288E0042BE71 /* PostItemListVC.swift */,
+				C263EDD11C146132008BFD7C /* PostItemDetailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -223,6 +249,7 @@
 			children = (
 				C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */,
 				C27DF97D1C127D4A0042BE71 /* AllPostItemListVM.swift */,
+				C263EDD71C147F7B008BFD7C /* UserListVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				C27DF9801C1293DC0042BE71 /* ItemCell.swift */,
+				C263EDCD1C1444B8008BFD7C /* ItemDetailTopCell.swift */,
+				C263EDCF1C1460D2008BFD7C /* ItemDetailBodyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +352,7 @@
 				C27DF9481C0AF0D60042BE71 /* LaunchScreen.storyboard in Resources */,
 				C27DF9451C0AF0D60042BE71 /* Assets.xcassets in Resources */,
 				C27DF9431C0AF0D60042BE71 /* Main.storyboard in Resources */,
+				C263EDCC1C143D18008BFD7C /* PostItemDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,11 +433,17 @@
 			files = (
 				C27DF9711C0B24050042BE71 /* PostItemModel.swift in Sources */,
 				C27DF9651C0B00E30042BE71 /* QiitaAPI.swift in Sources */,
+				C263EDD21C146132008BFD7C /* PostItemDetailVC.swift in Sources */,
+				C263EDD41C147AFE008BFD7C /* StockEndpoint.swift in Sources */,
 				C27DF9781C0B288E0042BE71 /* PostItemListVC.swift in Sources */,
+				C263EDD81C147F7B008BFD7C /* UserListVM.swift in Sources */,
 				C27DF9751C0B26EB0042BE71 /* AllPostItemListModel.swift in Sources */,
 				C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */,
 				C27DF9631C0B00340042BE71 /* R.generated.swift in Sources */,
+				C263EDD61C147D2B008BFD7C /* UserListModel.swift in Sources */,
 				C27DF96F1C0B1FCB0042BE71 /* UserModel.swift in Sources */,
+				C263EDCE1C1444B8008BFD7C /* ItemDetailTopCell.swift in Sources */,
+				C263EDD01C1460D2008BFD7C /* ItemDetailBodyCell.swift in Sources */,
 				C27DF97B1C0B36D00042BE71 /* PostItemCellVM.swift in Sources */,
 				C27DF96B1C0B1E3F0042BE71 /* TaggingModel.swift in Sources */,
 				C27DF9731C0B26840042BE71 /* PostItemEndpoint.swift in Sources */,

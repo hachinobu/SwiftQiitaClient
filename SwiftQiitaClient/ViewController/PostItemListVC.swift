@@ -67,14 +67,14 @@ class PostItemListVC: UITableViewController {
     }
     
     func fetchAllPostItem() {
-        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: ["per_page": 100])) { [weak self] result -> Void in
+        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: ["per_page": 100])) { [unowned self] result -> Void in
             
-            self?.refresh.endRefreshing()
+            self.refresh.endRefreshing()
             guard let object = result.value else {
                 return
             }
-            self?.postItemListVM = AllPostItemListVM(baseModel: object)
-            self?.bindUI()
+            self.postItemListVM = AllPostItemListVM(baseModel: object)
+            self.bindUI()
             
         }
     }
@@ -85,6 +85,19 @@ class PostItemListVC: UITableViewController {
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard let itemId = dataSource[indexPath.section][indexPath.row].id.value else {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            return
+        }
+        
+        let detailVC = R.storyboard.postItemDetail.initialViewController!
+        detailVC.itemId = itemId
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
     }
 
 }

@@ -14,8 +14,10 @@ import Kingfisher
 struct PostItemCellVM {
     
     let id = Observable<String?>("")
+    let userId = Observable<String?>("")
     let profileImage = Observable<UIImage?>(nil)
-    var profileImageURL: String? = ""
+    var profileImageURL: String?
+    var renderedBody: String?
     let title = Observable<String?>("")
     let tags = Observable<String>("")
     let itemURL = Observable<String?>("")
@@ -23,12 +25,16 @@ struct PostItemCellVM {
     let createdAt = Observable<String?>("")
     
     var postedInfo: EventProducer<String?> {
-        return combineLatest(id, updatedAt).map{ (idValue, createdAtValue) in
+        return combineLatest(userId, updatedAt).map{ (idValue, createdAtValue) in
             guard let idValue = idValue, createdAtValue = createdAtValue else {
                 return ""
             }
             return idValue + " が " + self.fetchTimeDifference(createdAtValue) + "前に投稿しました"
         }
+    }
+    
+    init() {
+        
     }
     
     init(postItemModel: PostItemModel) {
@@ -37,11 +43,13 @@ struct PostItemCellVM {
     
     private mutating func setupValue(postItemModel: PostItemModel) {
         profileImageURL = postItemModel.user?.profileImageUrl
+        renderedBody = postItemModel.renderedBody
         setupObservableValue(postItemModel)
     }
     
     private func setupObservableValue(postItemModel: PostItemModel) {
-        id.next(postItemModel.user?.id)
+        id.next(postItemModel.id)
+        userId.next(postItemModel.user?.id)
         title.next(postItemModel.title)
         itemURL.next(postItemModel.url)
         updatedAt.next(postItemModel.updatedAt)
@@ -92,6 +100,10 @@ struct PostItemCellVM {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.profileImage.next(image)
         })
+    }
+    
+    func displayRenderBody() -> String {
+        return renderedBody ?? ""
     }
     
     func downloadProfileImage() {

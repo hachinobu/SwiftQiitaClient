@@ -16,6 +16,7 @@ class QiitaAPI {
     
     class func call<T: RequestProtocol>(request: T, completion: Result<T.ResponseType, NSError> -> Void) {
         
+        print(request.headers)
         Alamofire.request(request.method, request.URLString, parameters: request.parameters, encoding: request.encoding, headers: request.headers)
             .progress { progress -> Void in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -46,6 +47,7 @@ protocol RequestProtocol {
     var path: String { get }
     var parameters: [String: AnyObject]? { get }
     var encoding: ParameterEncoding { get }
+    var isAccessToken: Bool { get }
     var headers: [String: String]? { get }
     var cachePolicy: NSURLRequestCachePolicy { get }
     var responseSerializer: ResponseSerializer<ResponseType, NSError> { get }
@@ -62,6 +64,10 @@ extension RequestProtocol {
         return QiitaBaseURL
     }
     
+    var parameters: [String: AnyObject]? {
+        return nil
+    }
+    
     var URLString: String {
         return baseURL + path
     }
@@ -70,7 +76,17 @@ extension RequestProtocol {
         return .URL
     }
     
+    var isAccessToken: Bool {
+        return false
+    }
+    
     var headers: [String: String]? {
+        if isAccessToken {
+            let secretsFileURL = NSBundle.mainBundle().URLForResource("Secrets", withExtension: "plist")!
+            let secretDict = NSDictionary(contentsOfURL: secretsFileURL)!
+            let accessToken = secretDict["AccessToken"] as! String
+            return ["Authorization": "Bearer \(accessToken)"]
+        }
         return nil
     }
     
