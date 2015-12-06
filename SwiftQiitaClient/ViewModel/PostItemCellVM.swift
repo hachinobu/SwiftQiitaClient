@@ -88,6 +88,12 @@ struct PostItemCellVM {
         
     }
     
+    private func changeProfileImage(image: UIImage) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.profileImage.next(image)
+        })
+    }
+    
     func downloadProfileImage() {
         
         guard let profileImageURL = profileImageURL, url = NSURL(string: profileImageURL) else {
@@ -96,13 +102,8 @@ struct PostItemCellVM {
         
         KingfisherManager.sharedManager.retrieveImageWithResource(Resource(downloadURL: url), optionsInfo: nil, progressBlock: nil) { (image, error, cacheType, imageURL) -> () in
             
-            guard let image = image else {
-                return
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.profileImage.next(image)
-            })
+            let imageValue = image ?? UIImage()
+            self.changeProfileImage(imageValue)
             
         }
         
