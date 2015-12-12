@@ -272,12 +272,12 @@
 			buildConfigurationList = C27DF9571C0AF0D70042BE71 /* Build configuration list for PBXNativeTarget "SwiftQiitaClient" */;
 			buildPhases = (
 				1C4C7D76DF62BAB6C28EC9D9 /* Check Pods Manifest.lock */,
+				C27DF9601C0AFF510042BE71 /* Run Script */,
 				C27DF9361C0AF0D60042BE71 /* Sources */,
 				C27DF9371C0AF0D60042BE71 /* Frameworks */,
 				C27DF9381C0AF0D60042BE71 /* Resources */,
 				487B83B7ACC1AA00EF0AA34A /* Embed Pods Frameworks */,
 				779723A0BA47DE3E6449757E /* Copy Pods Resources */,
-				C27DF9601C0AFF510042BE71 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -411,13 +411,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C27DF9601C0AFF510042BE71 /* ShellScript */ = {
+		C27DF9601C0AFF510042BE71 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

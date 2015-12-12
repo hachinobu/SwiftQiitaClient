@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (3.1.3)
-  - Bond (4.2.0)
+  - Bond (4.3.0)
   - Kingfisher (1.8.3)
   - ObjectMapper (1.0.1)
-  - R.swift (0.12.0)
+  - R.swift (0.13.0)
   - ReactKit (0.12.0):
     - SwiftTask (~> 4.0.0)
   - SwiftTask (4.0.0)
@@ -20,10 +20,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
-  Bond: 944cdfcc6ffad0fe57742a7fa5c3b6923019f353
+  Bond: ebe2364b18130690083cbceff036420b21494ae4
   Kingfisher: ead91e9dbeb7e5a2e8b7af3bd8a294104cbcc3f9
   ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
-  R.swift: 8d8a9f0cb36462d0dff82b70cc2c0396add668fe
+  R.swift: 07e0796d2b4d50b875eb7de9bd8e6193e15c6434
   ReactKit: a2b705e8a8674b9cb38b8112c07891df87e8e62b
   SwiftTask: 724ff63fc8bd9b366d242696d4aff098f6de3c3a
   Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
