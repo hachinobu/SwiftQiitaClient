@@ -63,7 +63,7 @@ class PostItemListVC: UITableViewController {
     }
     
     func fetchAllPostItem() {
-        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: ["per_page": 100])) { [unowned self] result -> Void in
+        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: ["per_page": 100])) { result -> Void in
             
             self.refresh.endRefreshing()
             guard let object = result.value else {
