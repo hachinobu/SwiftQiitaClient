@@ -33,6 +33,16 @@ struct PostItemCellVM {
         }
     }
     
+    typealias IndicatorStatus = (isAnimation: Observable<Bool>, isHidden: Observable<Bool>)
+    var indicatorStatusInfo: EventProducer<IndicatorStatus> {
+        return profileImage.map { image -> IndicatorStatus in
+            if image == nil {
+                return (isAnimation: Observable<Bool>(true), isHidden: Observable<Bool>(false))
+            }
+            return (isAnimation: Observable<Bool>(false), isHidden: Observable<Bool>(true))
+        }
+    }
+    
     init() {
         
     }

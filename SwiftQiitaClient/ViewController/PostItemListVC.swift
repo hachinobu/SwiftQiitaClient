@@ -41,15 +41,11 @@ class PostItemListVC: UITableViewController {
             let cellVM = dataSource[indexPath.section][indexPath.row]
             let cell = tableview.dequeueReusableCellWithIdentifier(R.reuseIdentifier.postItemListCell, forIndexPath: indexPath)!
             cellVM.profileImage.bindTo(cell.profileImageView.bnd_image).disposeIn(cell.bnd_bag)
-            cell.profileImageView.bnd_image.observe { image -> Void in
-                if image == nil {
-                    cell.imageLoadIndicator.hidden = false
-                    cell.imageLoadIndicator.startAnimating()
-                    return
-                }
-                cell.imageLoadIndicator.hidden = true
-                cell.imageLoadIndicator.stopAnimating()
+            cellVM.indicatorStatusInfo.observe { status in
+                status.isAnimation.bindTo(cell.imageLoadIndicator.bnd_animating).disposeIn(cell.bnd_bag)
+                status.isHidden.bindTo(cell.imageLoadIndicator.bnd_hidden).disposeIn(cell.bnd_bag)
             }
+            
             cellVM.postedInfo.bindTo(cell.postedInfoLabel.bnd_text).disposeIn(cell.bnd_bag)
             cellVM.title.bindTo(cell.titleLabel.bnd_text).disposeIn(cell.bnd_bag)
             cellVM.tags.bindTo(cell.tagLabel.bnd_text).disposeIn(cell.bnd_bag)
