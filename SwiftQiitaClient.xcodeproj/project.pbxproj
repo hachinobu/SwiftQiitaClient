@@ -15,7 +15,6 @@
 		C263EDD61C147D2B008BFD7C /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD51C147D2B008BFD7C /* UserListModel.swift */; settings = {ASSET_TAGS = (); }; };
 		C263EDD81C147F7B008BFD7C /* UserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263EDD71C147F7B008BFD7C /* UserListVM.swift */; settings = {ASSET_TAGS = (); }; };
 		C27DF93E1C0AF0D60042BE71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */; };
-		C27DF9431C0AF0D60042BE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9411C0AF0D60042BE71 /* Main.storyboard */; };
 		C27DF9451C0AF0D60042BE71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9441C0AF0D60042BE71 /* Assets.xcassets */; };
 		C27DF9481C0AF0D60042BE71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27DF9461C0AF0D60042BE71 /* LaunchScreen.storyboard */; };
 		C27DF9531C0AF0D70042BE71 /* SwiftQiitaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9521C0AF0D70042BE71 /* SwiftQiitaClientTests.swift */; };
@@ -31,6 +30,7 @@
 		C27DF97B1C0B36D00042BE71 /* PostItemCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */; settings = {ASSET_TAGS = (); }; };
 		C27DF97E1C127D4A0042BE71 /* AllPostItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF97D1C127D4A0042BE71 /* AllPostItemListVM.swift */; settings = {ASSET_TAGS = (); }; };
 		C27DF9811C1293DC0042BE71 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF9801C1293DC0042BE71 /* ItemCell.swift */; settings = {ASSET_TAGS = (); }; };
+		C2A974341C1DACEF000CAB8C /* PostItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A974331C1DACEF000CAB8C /* PostItemList.storyboard */; settings = {ASSET_TAGS = (); }; };
 		C9E3502C78818343CC031532 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A455A93040E8BD6704A5AAAD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,6 @@
 		C263EDD71C147F7B008BFD7C /* UserListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListVM.swift; sourceTree = "<group>"; };
 		C27DF93A1C0AF0D60042BE71 /* SwiftQiitaClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQiitaClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C27DF9421C0AF0D60042BE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C27DF9441C0AF0D60042BE71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C27DF9471C0AF0D60042BE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C27DF9491C0AF0D60042BE71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		C27DF97A1C0B36D00042BE71 /* PostItemCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemCellVM.swift; sourceTree = "<group>"; };
 		C27DF97D1C127D4A0042BE71 /* AllPostItemListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPostItemListVM.swift; sourceTree = "<group>"; };
 		C27DF9801C1293DC0042BE71 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		C2A974331C1DACEF000CAB8C /* PostItemList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostItemList.storyboard; sourceTree = "<group>"; };
 		C2FF2F6D1C12B75400BEE542 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +118,7 @@
 		C263EDCA1C143CEC008BFD7C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				C2A974331C1DACEF000CAB8C /* PostItemList.storyboard */,
 				C263EDCB1C143D18008BFD7C /* PostItemDetail.storyboard */,
 			);
 			path = Storyboard;
@@ -154,7 +155,6 @@
 				C27DF9611C0B00080042BE71 /* R */,
 				C27DF95F1C0AFC150042BE71 /* QiitaAPI */,
 				C27DF93D1C0AF0D60042BE71 /* AppDelegate.swift */,
-				C27DF9411C0AF0D60042BE71 /* Main.storyboard */,
 				C27DF9441C0AF0D60042BE71 /* Assets.xcassets */,
 				C27DF9461C0AF0D60042BE71 /* LaunchScreen.storyboard */,
 				C27DF9491C0AF0D60042BE71 /* Info.plist */,
@@ -351,8 +351,8 @@
 				C27DF95E1C0AF5660042BE71 /* Secrets.plist in Resources */,
 				C27DF9481C0AF0D60042BE71 /* LaunchScreen.storyboard in Resources */,
 				C27DF9451C0AF0D60042BE71 /* Assets.xcassets in Resources */,
-				C27DF9431C0AF0D60042BE71 /* Main.storyboard in Resources */,
 				C263EDCC1C143D18008BFD7C /* PostItemDetail.storyboard in Resources */,
+				C2A974341C1DACEF000CAB8C /* PostItemList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,14 +472,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C27DF9411C0AF0D60042BE71 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C27DF9421C0AF0D60042BE71 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C27DF9461C0AF0D60042BE71 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
