@@ -16,7 +16,6 @@ class QiitaAPI {
     
     class func call<T: RequestProtocol>(request: T, completion: Result<T.ResponseType, NSError> -> Void) {
         
-        print(request.headers)
         Alamofire.request(request.method, request.URLString, parameters: request.parameters, encoding: request.encoding, headers: request.headers)
             .progress { progress -> Void in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -77,7 +76,7 @@ extension RequestProtocol {
     }
     
     var isAccessToken: Bool {
-        return false
+        return true
     }
     
     var headers: [String: String]? {
