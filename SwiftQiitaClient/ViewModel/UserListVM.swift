@@ -18,6 +18,9 @@ struct UserListVM {
             guard let count = count else {
                 return "0ストック"
             }
+            if count >= 100 {
+                return "100以上ストック"
+            }
             return "\(count)ストック"
         }
         

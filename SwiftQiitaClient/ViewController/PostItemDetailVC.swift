@@ -12,6 +12,8 @@ import Alamofire
 
 class PostItemDetailVC: UITableViewController {
 
+    typealias TaskType = Task<Void, Bool, NSError>
+    
     var itemId: String!
     var itemVM: PostItemCellVM = PostItemCellVM()
     var stockUserListVM = UserListVM()
@@ -33,28 +35,39 @@ class PostItemDetailVC: UITableViewController {
         
         let tasks = [fetchPostItemDetail(), fetchStockers()]
         Task.all(tasks).success { [weak self] results -> Void in
-            self?.tableView.reloadData()
+            
+            self?.fetchStockStatus().success { [weak self] _ -> Void in
+                self?.itemVM.updateStockStatus(true)
+            }.failure { [weak self] _ -> Void in
+                self?.itemVM.updateStockStatus(false)
+            }.then { [weak self] _ -> Void in
+                self?.tableView.reloadData()
+            }
+            
         }.failure { (error, isCancelled) -> Void in
             print(error?.localizedDescription)
-        }.then { _ in
         }
         
     }
     
-    func fetchStockStatus() {
+    func fetchStockStatus() -> TaskType {
         
-        QiitaAPI.call(QiitaAPI.StockOperation(method: Alamofire.Method.GET, itemId: itemId)) { [weak self] result -> Void in
+        return TaskType { (progress, fulfill, reject, configure) -> Void in
             
-            guard let object = result.value else {
-                print(result.error!.localizedDescription)
-                return
+            QiitaAPI.call(QiitaAPI.CheckStock(itemId: self.itemId)) { result -> Void in
+                
+                if let error = result.error {
+                    return reject(error)
+                }
+                return fulfill(true)
+                
             }
             
         }
         
     }
 
-    func fetchPostItemDetail() -> Task<Void, Bool, NSError> {
+    func fetchPostItemDetail() -> TaskType {
         
         return Task { (_, fulfill, reject, configure) -> Void in
             
@@ -72,7 +85,7 @@ class PostItemDetailVC: UITableViewController {
         
     }
     
-    func fetchStockers() -> Task<Void, Bool, NSError> {
+    func fetchStockers() -> TaskType {
         
         return Task { (_, fulfill, reject, configure) -> Void in
             
@@ -110,6 +123,14 @@ class PostItemDetailVC: UITableViewController {
             itemVM.postedInfo.bindTo(cell.postInfoLabel.bnd_text).disposeIn(cell.bnd_bag)
             stockUserListVM.stockCountInfo.bindTo(cell.stockCountLabel.bnd_text).disposeIn(cell.bnd_bag)
             itemVM.downloadProfileImage()
+            itemVM.stockButtonInfo.observe { (status) -> Void in
+                status.backgroundColor.bindTo(cell.stockButton.bnd_backgroundColor).disposeIn(cell.bnd_bag)
+                status.title.bindTo(cell.stockButton.bnd_title).disposeIn(cell.bnd_bag)
+                cell.stockButton.setTitleColor(status.textColor, forState: .Normal)
+            }
+            cell.stockButton.bnd_controlEvent.filter { $0 == .TouchUpInside }.observeNew { [unowned self] event -> Void in
+                self.itemVM.updateStockItem()
+            }
             
             return cell
         }

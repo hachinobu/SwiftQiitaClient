@@ -23,13 +23,14 @@ struct PostItemCellVM {
     let itemURL = Observable<String?>("")
     let updatedAt = Observable<String?>("")
     let createdAt = Observable<String?>("")
+    let hasStock = Observable<Bool>(false)
     
     var postedInfo: EventProducer<String?> {
         return combineLatest(userId, updatedAt).map{ (idValue, createdAtValue) in
-            guard let idValue = idValue, createdAtValue = createdAtValue else {
+            guard let idValue = idValue else {
                 return ""
             }
-            return idValue + " が " + self.fetchTimeDifference(createdAtValue) + "前に投稿しました"
+            return idValue + " が投稿しました"
         }
     }
     
@@ -40,6 +41,16 @@ struct PostItemCellVM {
                 return (isAnimation: Observable<Bool>(true), isHidden: Observable<Bool>(false))
             }
             return (isAnimation: Observable<Bool>(false), isHidden: Observable<Bool>(true))
+        }
+    }
+    
+    typealias StockButtonStatus = (backgroundColor: Observable<UIColor>, textColor: UIColor, title: Observable<String>)
+    var stockButtonInfo: EventProducer<StockButtonStatus> {
+        return hasStock.map { isStock -> StockButtonStatus in
+            if isStock {
+                return (backgroundColor: Observable<UIColor>(UIColor.greenColor()), textColor: UIColor.whiteColor(), title: Observable<String>("ストック済"))
+            }
+            return (backgroundColor: Observable<UIColor>(UIColor.whiteColor()), textColor: UIColor.blackColor(), title: Observable<String>("ストックする"))
         }
     }
     
@@ -112,6 +123,10 @@ struct PostItemCellVM {
         })
     }
     
+    func updateStockStatus(isStock: Bool) {
+        hasStock.next(isStock)
+    }
+    
     func displayRenderBody() -> String {
         return renderedBody ?? ""
     }
@@ -128,6 +143,40 @@ struct PostItemCellVM {
             self.changeProfileImage(imageValue)
             
         }
+        
+    }
+    
+    private func createStockItem(itemId: String) -> (endPoint: QiitaAPI.StockOperation, result: Bool) {
+        return (endPoint: QiitaAPI.ToStock(itemId: itemId), result: true)
+    }
+    
+    private func deleteStockItem(itemId: String) -> (endPoint: QiitaAPI.StockOperation, result: Bool) {
+        return (endPoint: QiitaAPI.DeleteStock(itemId: itemId), result: false)
+    }
+    
+    private func updateStockItem(stockInfo: (endPoint: QiitaAPI.StockOperation, result: Bool)) {
+        
+        QiitaAPI.call(stockInfo.endPoint) { result -> Void in
+            
+            if result.error != nil {
+                return
+            }
+            self.updateStockStatus(stockInfo.result)
+            
+        }
+        
+    }
+    
+    func updateStockItem() {
+        
+        guard let itemId = id.value else {
+            return
+        }
+        if hasStock.value {
+            updateStockItem(deleteStockItem(itemId))
+            return
+        }
+        updateStockItem(createStockItem(itemId))
         
     }
     

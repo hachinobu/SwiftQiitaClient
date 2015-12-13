@@ -16,6 +16,7 @@ extension QiitaAPI {
         
         typealias ResponseType = UserListModel
         var path: String
+        var parameters: [String: AnyObject]? = ["per_page": 100]
         
         init(itemId: String) {
             path = "/api/v2/items/\(itemId)/stockers"
@@ -48,7 +49,6 @@ extension QiitaAPI {
         typealias ResponseType = Bool
         var method: Alamofire.Method
         var path: String
-        var isAccessToken: Bool = true
         
         init(method: Alamofire.Method, itemId: String) {
             self.method = method
@@ -58,11 +58,34 @@ extension QiitaAPI {
         var responseSerializer: ResponseSerializer<ResponseType, NSError> {
             
             return ResponseSerializer<ResponseType, NSError> { request, response, data, error -> Result<ResponseType, NSError> in
+                
+                if let error = error {
+                    return .Failure(error)
+                }
                 return .Success(true)
+                
             }
             
         }
         
+    }
+    
+    class CheckStock: StockOperation {
+        init(itemId: String) {
+            super.init(method: Alamofire.Method.GET, itemId: itemId)
+        }
+    }
+    
+    class ToStock: StockOperation {
+        init(itemId: String) {
+            super.init(method: Alamofire.Method.PUT, itemId: itemId)
+        }
+    }
+    
+    class DeleteStock: StockOperation {
+        init(itemId: String) {
+            super.init(method: Alamofire.Method.DELETE, itemId: itemId)
+        }
     }
     
 }
