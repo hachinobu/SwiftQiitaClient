@@ -6,9 +6,46 @@ import SwiftTask
 
 var str = "Hello, playground"
 
-let dateStr = "2015-12-06T10:59:17+09:00"
+let dateStr = "2015-12-13T21:33:45+09:00"
 let format = dateStr.dateFromFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ")!
 let today = NSDate()
+
+func fetchTimeDifference(ISO8601String: String) -> String {
+    
+    guard let date = ISO8601String.dateFromFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ") else {
+        return ""
+    }
+    let diff = NSCalendar.currentCalendar().components([.Year, .Month, .Weekday, .Day, .Hour, .Minute, .Second], fromDate: date, toDate: NSDate(), options: [])
+    
+    if diff.year > 0 {
+        return "\(diff.year)年"
+    }
+    
+    if diff.month > 0 {
+        return "\(diff.month)ヶ月"
+    }
+    
+    if diff.day > 0 {
+        return "\(diff.day)日"
+    }
+    
+    if diff.hour > 0 {
+        return "\(diff.hour)時間"
+    }
+    
+    if diff.minute > 0 {
+        return "\(diff.minute)分"
+    }
+    
+    if diff.second > 0 {
+        return "\(diff.second)秒"
+    }
+    
+    return ""
+    
+}
+
+print(fetchTimeDifference(dateStr))
 
 if today.year - format.year > 0 {
    print(today.year - format.year)
