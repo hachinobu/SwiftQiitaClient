@@ -62,19 +62,6 @@ class PostItemListVC: UITableViewController {
         fetchAllPostItem()
     }
     
-    func fetchAllPostItem() {
-        QiitaAPI.call(QiitaAPI.AllPostItemList(parameters: ["per_page": 100])) { result -> Void in
-            
-            self.refresh.endRefreshing()
-            guard let object = result.value else {
-                return
-            }
-            self.postItemListVM = AllPostItemListVM(baseModel: object)
-            self.bindUI()
-            
-        }
-    }
-    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }

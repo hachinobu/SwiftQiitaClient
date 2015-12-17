@@ -44,13 +44,13 @@ struct PostItemCellVM {
         }
     }
     
-    typealias StockButtonStatus = (backgroundColor: Observable<UIColor>, textColor: UIColor, title: Observable<String>)
+    typealias StockButtonStatus = (backgroundColor: UIColor, textColor: UIColor, title: String)
     var stockButtonInfo: EventProducer<StockButtonStatus> {
         return hasStock.map { isStock -> StockButtonStatus in
             if isStock {
-                return (backgroundColor: Observable<UIColor>(UIColor.greenColor()), textColor: UIColor.whiteColor(), title: Observable<String>("ストック済"))
+                return (backgroundColor: UIColor.greenColor(), textColor: UIColor.whiteColor(), title: "ストック済")
             }
-            return (backgroundColor: Observable<UIColor>(UIColor.whiteColor()), textColor: UIColor.blackColor(), title: Observable<String>("ストックする"))
+            return (backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor(), title: "ストックする")
         }
     }
     
