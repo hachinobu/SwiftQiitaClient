@@ -82,6 +82,7 @@
 		C27DF97D1C127D4A0042BE71 /* AllPostItemListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPostItemListVM.swift; sourceTree = "<group>"; };
 		C27DF9801C1293DC0042BE71 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		C2A974331C1DACEF000CAB8C /* PostItemList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostItemList.storyboard; sourceTree = "<group>"; };
+		C2CB36E61C2FE1EC00A38835 /* Bond.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Bond.playground; sourceTree = "<group>"; };
 		C2FF2F6D1C12B75400BEE542 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +166,7 @@
 				C27DF9491C0AF0D60042BE71 /* Info.plist */,
 				C27DF95D1C0AF5660042BE71 /* Secrets.plist */,
 				C2FF2F6D1C12B75400BEE542 /* MyPlayground.playground */,
+				C2CB36E61C2FE1EC00A38835 /* Bond.playground */,
 			);
 			path = SwiftQiitaClient;
 			sourceTree = "<group>";
