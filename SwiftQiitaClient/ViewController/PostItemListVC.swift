@@ -31,7 +31,7 @@ class PostItemListVC: UITableViewController {
         self.title = "すべての投稿"
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(refresh)
-        refresh.addTarget(self, action: Selector("refreshPostData"), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: #selector(PostItemListVC.refreshPostData), forControlEvents: .ValueChanged)
     }
     
     func bindUI() {

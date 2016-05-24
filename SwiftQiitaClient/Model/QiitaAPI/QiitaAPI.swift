@@ -39,7 +39,7 @@ class QiitaAPI {
 
 protocol RequestProtocol {
     
-    typealias ResponseType
+    associatedtype ResponseType
     
     var method: Alamofire.Method { get }
     var baseURL: String { get }
